@@ -1,19 +1,31 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
+import { getTodos, setTodos } from "./AsyncStorage/todos-list";
 import { NavBar } from "./components/NavBar";
 import { TodosList } from "./components/TodosList";
 import { ITodo } from "./models/models";
 
+
 export default function App() {
+
   const [text, changeText] = useState<string>("");
 
   const [todoList, setTodoList] = useState<ITodo[]>([]);
+
+  useEffect(() => {
+    getTodos().then(data => setTodoList(data))
+  }, [])
+
+  useEffect(() => {
+    setTodos(todoList)
+  }, [todoList])
 
   const removeTask = (task: ITodo) => {
     setTodoList((prev) => prev.filter((todo) => todo.id !== task.id));
   };
 
-  const pressedHandler = () => {
+  const pressedHandler = async () => {
     if (text.trim()) {
       setTodoList([...todoList, { id: Date.now() + Math.random(), text }]);
       changeText('')
