@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "react-native-app-1",
+    "description": "todo app",
     "slug": "react-native-app-1",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -24,7 +25,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.kasyan99.todoApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
