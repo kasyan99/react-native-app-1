@@ -2,13 +2,14 @@ import { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { NavBar } from "./components/NavBar";
 import { TodosList } from "./components/TodosList";
+import { ITodo } from "./models/models";
 
 export default function App() {
-  const [text, changeText] = useState("");
+  const [text, changeText] = useState<string>("");
 
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState<ITodo[]>([]);
 
-  const removeTask = (task) => {
+  const removeTask = (task: ITodo) => {
     setTodoList((prev) => prev.filter((todo) => todo.id !== task.id));
   };
 

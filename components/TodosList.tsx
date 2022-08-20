@@ -7,8 +7,9 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
+import { TodosListProps } from "../models/models";
 
-export const TodosList = ({ todoList, removeTask }) => {
+export const TodosList = ({ todoList, removeTask }: TodosListProps) => {
   // return <ScrollView style={{width:'100%'}}>
   //    {todoList.map(item => (
   //       <View
